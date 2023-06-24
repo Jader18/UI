@@ -9,7 +9,7 @@ namespace DAL
 {
     public static class DAL_Roles
     {
-        //Insertar 
+        //Insertar
         public static Roles Insert(Roles Entidad)
         {
             using BDMPOO bd = new();
@@ -27,7 +27,7 @@ namespace DAL
             var Registro = bd.Roles.Find(Entidad.IdRol);
             if (Registro == null)
             {
-                return false; 
+                return false;
             }
             Registro.Rol = Entidad.Rol;
             Registro.FechaActualizacion = DateTime.Now;
@@ -59,12 +59,7 @@ namespace DAL
         public static List<Roles> Listar(bool Activo = true)
         {
             using BDMPOO bd = new();
-            return bd.Roles.Where(a => a.Activo).ToListo();
-
+            return bd.Roles.Where(a => a.Activo==Activo).ToList();
         }
-
-
-
-
     }
 }
