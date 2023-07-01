@@ -14,6 +14,7 @@ namespace DAL
         public virtual DbSet<RolFormularios>? RolFormularios { get; set; }
         public virtual DbSet<RolPermisos>? RolPermisos { get; set; }
         public virtual DbSet<Usuarios>? Usuarios { get; set; }
+        public virtual DbSet<Clientes>? Clientes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -24,6 +25,9 @@ namespace DAL
             modelBuilder.Entity<Usuarios>().Property(e => e.NombreCompleto).IsUnicode(false);
             modelBuilder.Entity<Usuarios>().Property(e => e.Correo).IsUnicode(false);
             modelBuilder.Entity<Usuarios>().Property(e => e.UserName).IsUnicode(false);
+            modelBuilder.Entity<Clientes>().Property(e => e.Nombre_Completo).IsUnicode(false);
+            modelBuilder.Entity<Clientes>().Property(e => e.Correo).IsUnicode(false);
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             base.OnModelCreating(modelBuilder); 
 
