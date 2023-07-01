@@ -25,7 +25,7 @@ namespace DAL
                 var Registro = bd.RolPermisos.Find(Entidad.IdRolPermiso);
                 Registro.IdRol = Entidad.IdRol;
                 Registro.IdPermiso = Entidad.IdPermiso;
-                Registro.IdRolForumulario = Entidad.IdRolForumulario;
+                Registro.IdRolFormulario = Entidad.IdRolFormulario;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
                 return bd.SaveChanges() > 0;

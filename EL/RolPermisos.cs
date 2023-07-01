@@ -21,7 +21,7 @@ namespace EL
         [Required]
         public int IdPermiso { get; set; }
         [Required]
-        public int IdFormulario { get; set; }
+        public int IdRolFormulario { get; set; }
         [Required]
         public bool Activo { get; set; }
         [Required]
