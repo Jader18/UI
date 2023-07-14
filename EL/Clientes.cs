@@ -14,16 +14,16 @@ namespace EL
     {
 
         [Key]
-        public short IdCliente { get; set; }
+        public int IdCliente { get; set; }
 
         [MaxLength(200), Required]
-        public string Nombre_Completo { get; set; }
+        public string NombreCliente { get; set; }
 
         [MaxLength(200), Required]
         public string Correo { get; set; }
 
         [MaxLength(10), Required]
-        public string Celular { get; set; }
+        public string Numero { get; set; }
 
         [Required]
 
@@ -37,7 +37,7 @@ namespace EL
 
         public Clientes()
         {
-            Nombre_Completo = string.Empty;
+            NombreCliente  = string.Empty;
             Correo = string.Empty;
      
         }

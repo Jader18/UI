@@ -25,7 +25,7 @@ namespace DAL
             using (BDMPOO bd = new BDMPOO())
             {
                 var Registro = bd.Clientes.Find(Entidad.IdCliente);
-                Registro.Nombre_Completo = Entidad.Nombre_Completo;
+                Registro.NombreCliente  = Entidad.NombreCliente;
                 Registro.Correo = Entidad.Correo;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
