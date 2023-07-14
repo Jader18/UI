@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EL;
 using BLL;
-//using BL;
+using BL;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Net;
