@@ -7,7 +7,7 @@ namespace DAL
 {
     public class BDMPOO : DbContext 
     {
-        public BDMPOO() : base(Conexion.ConexionString(true)) { }
+        public BDMPOO() : base(Conexion.ConexionString()) { }
         public virtual DbSet<Formularios>? Formularios { get; set; }
         public virtual DbSet<Permisos>? Permisos { get; set; }
         public virtual DbSet<Roles>? Roles { get; set; }

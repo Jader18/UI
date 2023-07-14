@@ -19,15 +19,15 @@ namespace EL
         [MaxLength(200), Required]
         public string NombreCliente { get; set; }
 
-        [MaxLength(200), Required]
-        public string Correo { get; set; }
-
         [MaxLength(10), Required]
         public string Numero { get; set; }
 
-        [Required]
+        [MaxLength(200), Required]
+        public string Correo { get; set; }
 
+        [Required]
         public bool Activo { get; set; }
+
         [Required]
         public int IdUsuarioRegistra { get; set; }
         [Required]
@@ -37,9 +37,10 @@ namespace EL
 
         public Clientes()
         {
-            NombreCliente  = string.Empty;
-            Correo = string.Empty;
-     
+            NombreCliente= string.Empty;
+            Numero= string.Empty;
+            Correo= string.Empty;
+
         }
 
     }

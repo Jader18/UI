@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EL;
 using BLL;
-//using BL;
+using Utility;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Net;
@@ -36,6 +36,7 @@ namespace UI
         {
             try
             {
+                //listo el orden de la entidad
                 gridClientes.DataSource = BLL_Clientes.Lista();
                 gridClientes.Columns[0].Visible = false;
                 gridClientes.Columns[1].HeaderText = "Nombre del Cliente";
@@ -87,6 +88,13 @@ namespace UI
                 MessageBox.Show("El campo correo debe ser menor a 200 caracteres");
                 return false;
             }
+            if (!General.ValidateEmail(txtCorreo.Text))
+            {
+                MessageBox.Show("Ingrese un correo valido");
+                return false;
+            }
+
+
             return true;
         }
         private void Guardar()
@@ -186,8 +194,30 @@ namespace UI
         {
             Anular();
         }
+
         #endregion
 
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            Guardar();
 
+
+        }
+
+        private void btnNuevo_Click_1(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void btnAnular_Click_1(object sender, EventArgs e)
+        {
+            Anular();
+
+        }
+
+        private void gridClientes_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            cargarCampos();
+        }
     }
 }

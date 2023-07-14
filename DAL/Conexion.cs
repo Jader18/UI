@@ -6,7 +6,7 @@ namespace DAL
     public static class Conexion
     {
         private static string NombreAplicacion = "GeneradorCapas";
-        private static string Servidor = @"Jader Mendoza\MENDOZAII";
+        private static string Servidor = @"MENDOZAII";
         private static string Usuario = "";
         private static string Password = "";
         private static string BaseDatos = "MPOO";
@@ -17,11 +17,11 @@ namespace DAL
             SqlConnectionStringBuilder Constructor = new SqlConnectionStringBuilder()
             {
                 ApplicationName = NombreAplicacion,
-                IntegratedSecurity = !SqlAutentication,
+                IntegratedSecurity = SqlAutentication,
                 DataSource = Servidor,
                 InitialCatalog = BaseDatos
             };
-            if (SqlAutentication)
+            if (!SqlAutentication)
             {
                 Constructor.UserID = Usuario;
                 Constructor.Password = Password;

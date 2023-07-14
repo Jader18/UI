@@ -1,9 +1,5 @@
 ﻿using EL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO.Pipes;
 
 namespace DAL
 {
@@ -25,7 +21,9 @@ namespace DAL
             using (BDMPOO bd = new BDMPOO())
             {
                 var Registro = bd.Clientes.Find(Entidad.IdCliente);
-                Registro.NombreCliente  = Entidad.NombreCliente;
+
+                Registro.NombreCliente = Entidad.NombreCliente;
+                Registro.Numero = Entidad.Numero;
                 Registro.Correo = Entidad.Correo;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
@@ -37,9 +35,9 @@ namespace DAL
             using (BDMPOO bd = new BDMPOO())
             {
                 var Registro = bd.Clientes.Find(Entidad.IdCliente);
-                Registro.Activo = Entidad.Activo;
+                Registro.Activo = false;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
-                Registro.FechaActualizacion = Entidad.FechaActualizacion;
+                Registro.FechaActualizacion = DateTime.Now;
                 return bd.SaveChanges() > 0;
             }
         }
@@ -64,7 +62,20 @@ namespace DAL
                 return bd.Clientes.Where(a => a.Activo == Activo).ToList();
             }
         }
-
+        public static bool ExisteNumero(string Numero, int IdRegistro)
+        {
+            using (BDMPOO bd = new())
+            {
+                return bd.Clientes.Where(a => a.Numero == Numero && a.IdCliente != IdRegistro && a.Activo == true).Count() > 0;
+            }
+        }
+        public static bool ExisteCorreo(string Email, int IdRegistro)
+        {
+            using (BDMPOO bd = new())
+            {
+                return bd.Clientes.Where(a => a.Correo == Email && a.IdCliente != IdRegistro && a.Activo == true).Count() > 0;
+            }
+        }
 
     }
 }
