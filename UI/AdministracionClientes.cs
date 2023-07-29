@@ -226,5 +226,13 @@ namespace UI
         {
             cargarCampos();
         }
+
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsNumber(e.KeyChar) || e.KeyChar == 8);
+
+        }
+
+
     }
 }
