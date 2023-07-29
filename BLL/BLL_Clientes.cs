@@ -34,14 +34,17 @@ namespace BLL
         {
             return DAL_Clientes.Lista(Activo);
         }
-        public static bool ExisteNumero(string Numero, int IdRegistro)
+        public static bool ValidarNumero(string Numero, int IdRegistro)
         {
-            return DAL_Clientes.ExisteNumero(Numero, IdRegistro);
+            return DAL_Clientes.ValidarNumero(Numero, IdRegistro);
         }
-        public static bool ExisteCorreo(string Email, int IdRegistro)
+        public static bool ValidarCorreo(string Email, int IdRegistro)
         {
-            return DAL_Clientes.ExisteCorreo(Email, IdRegistro);
+            return DAL_Clientes.ValidarCorreo(Email, IdRegistro);
         }
+
+ 
+
 
     }
 }
