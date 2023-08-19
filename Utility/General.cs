@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -95,6 +97,36 @@ namespace Utility
                 }
             }
             return numero;
+        }
+
+        public static bool EnviarCorreo(string from, string to, string subject, string body)
+        {
+            if (string.IsNullOrEmpty(from) || string.IsNullOrWhiteSpace(from) || string.IsNullOrEmpty(to) || string.IsNullOrWhiteSpace(to))
+            {
+                return false;
+            }
+
+            int smtpPort = 587;
+            string smtpServer = "smtp-relay.brevo.com";
+            string smtpUsername = "mendozajader18@gmail.com";
+            string smtpPassword = "xsmtpsib-e7da7280649156057f3d1e631b5f63cd809faf3114180284da4025311e34f274-7gnVzYvkqscHZmC8";
+
+            try
+            {
+                MailMessage mail = new(from, to, subject, body);
+                SmtpClient smtpClient = new(smtpServer, smtpPort)
+                {
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(smtpUsername, smtpPassword),
+                    EnableSsl = true
+                };
+                smtpClient.Send(mail);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

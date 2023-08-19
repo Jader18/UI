@@ -85,3 +85,13 @@ FechaRegistro DATETIME NOT NULL,
 IdUsuarioActualiza INT NULL,
 FechaActualizacion DATETIME NULL
 )
+GO
+CREATE TABLE Productos(
+IdProducto INT PRIMARY KEY IDENTITY(1,1),
+Descripcion VARCHAR(200),
+Activo BIT DEFAULT(1) NOT NULL,
+IdUsuarioRegistra INT NOT NULL,
+FechaRegistro DATETIME NOT NULL,
+IdUsuarioActualiza INT NULL,
+FechaActualizacion DATETIME NULL
+)

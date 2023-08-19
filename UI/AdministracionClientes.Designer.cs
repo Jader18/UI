@@ -38,15 +38,18 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.gridClientes = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMensaje = new System.Windows.Forms.TextBox();
+            this.ckEnviarCorreo = new System.Windows.Forms.CheckBox();
+            this.btnEnviar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombreCliente
             // 
             this.lblNombreCliente.AutoSize = true;
-            this.lblNombreCliente.Location = new System.Drawing.Point(31, 30);
+            this.lblNombreCliente.Location = new System.Drawing.Point(21, 11);
             this.lblNombreCliente.Name = "lblNombreCliente";
             this.lblNombreCliente.Size = new System.Drawing.Size(110, 15);
             this.lblNombreCliente.TabIndex = 0;
@@ -54,39 +57,40 @@
             // 
             // txtNombreCliente
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(22, 48);
+            this.txtNombreCliente.Location = new System.Drawing.Point(12, 29);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(394, 23);
+            this.txtNombreCliente.Size = new System.Drawing.Size(473, 23);
             this.txtNombreCliente.TabIndex = 1;
             // 
             // txtCorreo
             // 
-            this.txtCorreo.Location = new System.Drawing.Point(22, 166);
+            this.txtCorreo.Location = new System.Drawing.Point(12, 147);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(394, 23);
+            this.txtCorreo.Size = new System.Drawing.Size(473, 23);
             this.txtCorreo.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 148);
+            this.label2.Location = new System.Drawing.Point(21, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Correo";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(22, 107);
+            this.txtNumero.Location = new System.Drawing.Point(12, 88);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(394, 23);
+            this.txtNumero.Size = new System.Drawing.Size(473, 23);
             this.txtNumero.TabIndex = 5;
             this.txtNumero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumero_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 88);
+            this.label1.Location = new System.Drawing.Point(21, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 15);
             this.label1.TabIndex = 4;
@@ -94,7 +98,7 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(29, 220);
+            this.btnNuevo.Location = new System.Drawing.Point(28, 282);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnNuevo.TabIndex = 6;
@@ -104,7 +108,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(110, 220);
+            this.btnGuardar.Location = new System.Drawing.Point(109, 282);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 7;
@@ -114,7 +118,7 @@
             // 
             // btnAnular
             // 
-            this.btnAnular.Location = new System.Drawing.Point(191, 220);
+            this.btnAnular.Location = new System.Drawing.Point(190, 282);
             this.btnAnular.Name = "btnAnular";
             this.btnAnular.Size = new System.Drawing.Size(75, 23);
             this.btnAnular.TabIndex = 8;
@@ -124,44 +128,78 @@
             // 
             // gridClientes
             // 
+            this.gridClientes.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTabList;
             this.gridClientes.AllowUserToAddRows = false;
             this.gridClientes.AllowUserToDeleteRows = false;
             this.gridClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridClientes.Location = new System.Drawing.Point(22, 300);
+            this.gridClientes.Location = new System.Drawing.Point(12, 339);
             this.gridClientes.MultiSelect = false;
             this.gridClientes.Name = "gridClientes";
             this.gridClientes.RowTemplate.Height = 25;
             this.gridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridClientes.Size = new System.Drawing.Size(394, 201);
+            this.gridClientes.Size = new System.Drawing.Size(473, 162);
             this.gridClientes.TabIndex = 9;
             this.gridClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridClientes_CellClick_1);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 282);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(10, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = " ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 282);
+            this.label4.Location = new System.Drawing.Point(23, 308);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "Listado de Clientes";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(21, 187);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 15);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Mensaje";
+            // 
+            // txtMensaje
+            // 
+            this.txtMensaje.Location = new System.Drawing.Point(12, 205);
+            this.txtMensaje.Multiline = true;
+            this.txtMensaje.Name = "txtMensaje";
+            this.txtMensaje.Size = new System.Drawing.Size(473, 71);
+            this.txtMensaje.TabIndex = 13;
+            this.txtMensaje.TextChanged += new System.EventHandler(this.txtMensaje_TextChanged);
+            // 
+            // ckEnviarCorreo
+            // 
+            this.ckEnviarCorreo.AutoSize = true;
+            this.ckEnviarCorreo.Location = new System.Drawing.Point(390, 180);
+            this.ckEnviarCorreo.Name = "ckEnviarCorreo";
+            this.ckEnviarCorreo.Size = new System.Drawing.Size(95, 19);
+            this.ckEnviarCorreo.TabIndex = 14;
+            this.ckEnviarCorreo.Text = "Enviar correo";
+            this.ckEnviarCorreo.UseVisualStyleBackColor = true;
+            this.ckEnviarCorreo.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Location = new System.Drawing.Point(271, 282);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(75, 23);
+            this.btnEnviar.TabIndex = 15;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click_1);
+            // 
             // AdministracionClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 513);
+            this.ClientSize = new System.Drawing.Size(496, 513);
+            this.Controls.Add(this.btnEnviar);
+            this.Controls.Add(this.ckEnviarCorreo);
+            this.Controls.Add(this.txtMensaje);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.gridClientes);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnGuardar);
@@ -196,7 +234,10 @@
         private Button btnGuardar;
         private Button btnAnular;
         private DataGridView gridClientes;
-        private Label label3;
         private Label label4;
+        private Label label5;
+        private TextBox txtMensaje;
+        private CheckBox ckEnviarCorreo;
+        private Button btnEnviar;
     }
 }

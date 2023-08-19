@@ -28,6 +28,8 @@ namespace UI
         private void AdministracionClientes_Load(object sender, EventArgs e)
         {
             cargarGrid();
+            txtMensaje.Enabled = false;
+            btnEnviar.Enabled = false;
 
         }
 
@@ -233,6 +235,42 @@ namespace UI
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            btnEnviar.Enabled = txtMensaje.Enabled = ckEnviarCorreo.Checked;
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnEnviar_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMensaje.Text) || string.IsNullOrWhiteSpace(txtMensaje.Text))
+            {
+                MessageBox.Show("Escribe un mensaje");
+                return;
+            }
+
+            if (General.EnviarCorreo("sistema@noreply.com", txtCorreo.Text, "Prueba",txtMensaje.Text))
+            {
+                MessageBox.Show("Mensaje enviado con exito.");
+                return;
+            }
+            MessageBox.Show("No se envió el correo.");
+        }
+
+        private void txtMensaje_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
